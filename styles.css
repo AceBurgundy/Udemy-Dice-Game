@@ -1,41 +1,142 @@
-.container {
-  width: 70%;
-  margin: auto;
-  text-align: center;
-}
-
-.dice {
-  text-align: center;
-  display: inline-block;
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap');
+@import "car.css";
+* {
+    margin: 0%;
+    padding: 0%;
+    font-family: 'Poppins', sans-serif;
+    outline: none;
 }
 
 body {
-  background-color: #393E46;
+    height: 100vh;
+    width: 100vw;
 }
 
-h1 {
-  margin: 30px;
-  font-family: 'Lobster', cursive;
-  text-shadow: 5px 0 #232931;
-  font-size: 8rem;
-  color: #4ECCA3;
+.container {
+    height: 100%;
+    width: 100%;
+    background-color: #232931;
+    margin: 0;
+    position: relative;
+    top: 0%;
+    display: grid;
+    overflow: hidden;
+    grid-template-columns: 1fr 25rem 1fr;
+    grid-template-areas: "player-one race-track player-two";
+}
+
+.playerOne {
+    grid-area: player-one;
+}
+
+.playerTwo {
+    grid-area: player-two;
+}
+
+.race-track {
+    grid-area: race-track;
+    display: flex;
+    justify-content: space-evenly;
+    position: relative;
+    align-items: flex-end;
+    gap: 4rem;
+    background-color: #393E46;
+}
+
+.action {
+    padding: 2.2rem;
+    position: absolute;
+    bottom: 10%;
+    border-radius: 5%;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: 100ms ease-in-out;
+}
+
+.action:active {
+    padding: 2.1rem;
+}
+
+.player,
+.race-track {
+    color: #232931
+}
+
+.race-line {
+    width: 180vh;
+    height: 4px;
+    transform: rotate(90deg);
+    position: absolute;
+    bottom: 0%;
+    background: linear-gradient(90deg, #fff, #fff 50%, transparent 50%, transparent 100%);
+    background-size: 50px;
+}
+
+.race-line.active {
+    animation: animate_road 0.5s linear infinite;
+}
+
+@keyframes animate_road {
+    0% {
+        background-position: 50px 0;
+    }
+    100% {
+        background-position: 0 0;
+    }
+}
+
+.race-track-left,
+.race-track-right {
+    width: 4rem;
+    display: flex;
+    overflow: visible;
+    position: relative;
+    height: 90%;
+}
+
+.child-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.goal {
+    position: absolute;
+    z-index: 2;
+    height: 4rem;
+    width: 90%;
+    top: 1%;
+    background: linear-gradient(90deg, #232931, #232931 50%, transparent 1%, transparent 1%);
+    background-size: 50px;
+}
+
+.goal.active {
+    animation: animate_goal 0.5s linear infinite;
+}
+
+@keyframes animate_goal {
+    0% {
+        background-position: 50px 0;
+    }
+    100% {
+        background-position: 0 0;
+    }
 }
 
 p {
-  font-size: 2rem;
-  color: #4ECCA3;
-  font-family: 'Indie Flower', cursive;
+    font-size: 3rem;
+    color: #4ECCA3;
+    font-weight: 200;
 }
 
 img {
-  width: 80%;
+    width: 80%;
 }
 
 footer {
-  margin-top: 5%;
-  color: #EEEEEE;
-  text-align: center;
-  font-family: 'Indie Flower', cursive;
-
+    margin-top: 5%;
+    color: #EEEEEE;
+    text-align: center;
+    font-family: 'Indie Flower', cursive;
 }
