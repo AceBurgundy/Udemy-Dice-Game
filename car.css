@@ -1,0 +1,122 @@
+.car {
+    background-color: #232931;
+    height: 8rem;
+    width: 100%;
+    border-radius: 20%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    bottom: 2%;
+    border-radius: 10px;
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.25);
+    transition: 500ms ease-in-out;
+}
+
+.car::before {
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    left: 10px;
+    width: 10px;
+    height: 3px;
+    background-color: #fc3c25;
+    box-shadow: 35px 0px #fc3c25;
+    border-radius: 20px;
+}
+
+
+/* headlight */
+
+.car::after {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 10px;
+    width: 10px;
+    height: 3px;
+    background-color: #ffffff;
+    box-shadow: 35px 0px #ffffff;
+    border-radius: 20px;
+}
+
+.car .light {
+    background-color: #232931;
+    width: 50%;
+    height: 0.1px;
+    position: absolute;
+    top: 0%;
+    box-shadow: 0px -100px 106px 27px rgb(255, 249, 172);
+    -webkit-box-shadow: 0px -100px 106px 27px rgb(255, 249, 172);
+    -moz-box-shadow: 0px -100px 106px 27px rgb(255, 249, 172);
+}
+
+.car-top::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 60%;
+    border-radius: 5px;
+    background-color: #232931;
+}
+
+.car-top {
+    position: absolute;
+    width: 90%;
+    height: 90%;
+    border-radius: 5px;
+    background-color: #33383f;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+
+/* roof */
+
+.car-top::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    content: "";
+    width: 80%;
+    height: 35%;
+    background-color: #33383f;
+}
+
+.window-dividers {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 80%;
+    height: 3px;
+    background-color: #33383f;
+}
+
+.window-dividers::before {
+    content: "";
+    position: absolute;
+    bottom: -35px;
+    left: 1px;
+    width: 2px;
+    height: 20px;
+    background-color: #33383f;
+    transform-origin: right;
+    transform: rotate(6deg);
+    box-shadow: 40.5px -56px #33383f;
+}
+
+.window-dividers::after {
+    content: "";
+    position: absolute;
+    bottom: -35px;
+    right: 2px;
+    width: 2px;
+    height: 20px;
+    background-color: #33383f;
+    transform-origin: right;
+    transform: rotate(-6deg);
+    box-shadow: -40.5px -56px #33383f;
+}
