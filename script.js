@@ -42,6 +42,7 @@ retry.addEventListener("click", () => {
 
 })
 
+
 // runs game on click
 players.forEach((player) => {
     player.addEventListener("click", (event) => {
