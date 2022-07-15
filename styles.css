@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap');
 @import "car.css";
+@import "fonts.css";
 * {
     margin: 0%;
     padding: 0%;
@@ -10,9 +11,51 @@
 body {
     height: 100vh;
     width: 100vw;
+    position: relative;
 }
 
-.container {
+.menu-container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #2e3238;
+    gap: 3rem;
+    position: absolute;
+    z-index: 2;
+    bottom: 0%;
+    transition: 1000ms ease-out;
+}
+
+.menu-container.active {
+    bottom: 100%;
+}
+
+.title {
+    font-size: 20rem;
+    font-family: 'Lobster';
+    color: #4ECCA3;
+    text-shadow: 15px 0 #232931;
+}
+
+.start-button {
+    padding: 3rem 4rem 3rem 4.5rem;
+    background-color: #4ECCA3;
+    box-shadow: 15px 15px #232931;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+#play-button {
+    width: 5rem;
+    fill: #232931;
+}
+
+.game-container {
+    z-index: 1;
     height: 100%;
     width: 100%;
     background-color: #232931;
@@ -25,12 +68,51 @@ body {
     grid-template-areas: "player-one race-track player-two";
 }
 
+.top,
+.bottom {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.top {
+    position: absolute;
+    top: 1%;
+    display: flex;
+    height: 15rem;
+    overflow: visible;
+}
+
+.top .score {
+    bottom: 0%;
+}
+
+.score {
+    position: absolute;
+    font-size: 6rem;
+    color: white;
+}
+
+.bottom {
+    position: absolute;
+    bottom: 10%;
+    height: 15rem;
+    width: 7rem;
+    overflow: visible;
+}
+
 .playerOne {
     grid-area: player-one;
 }
 
 .playerTwo {
     grid-area: player-two;
+}
+
+.players {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .race-track {
@@ -43,22 +125,36 @@ body {
     background-color: #393E46;
 }
 
-.action {
-    padding: 2.2rem;
+img {
     position: absolute;
-    bottom: 10%;
+    width: 6.5rem;
+    bottom: 0%;
+    transition: 50ms ease;
+    opacity: 0;
+}
+
+.action {
+    position: absolute;
+    padding: 2.2rem 3rem;
+    bottom: 0%;
     border-radius: 5%;
     border: none;
     font-size: 1.5rem;
     cursor: pointer;
+    z-index: 2;
     transition: 100ms ease-in-out;
 }
 
-.action:active {
+.action.active {
     padding: 2.1rem;
 }
 
-.player,
+img.active {
+    opacity: 1;
+    bottom: 50%;
+}
+
+.players,
 .race-track {
     color: #232931
 }
@@ -95,15 +191,9 @@ body {
     height: 90%;
 }
 
-.child-container {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-}
-
 .goal {
     position: absolute;
-    z-index: 2;
+    z-index: 1;
     height: 4rem;
     width: 90%;
     top: 1%;
@@ -125,18 +215,95 @@ body {
 }
 
 p {
-    font-size: 3rem;
+    font-size: 4rem;
     color: #4ECCA3;
     font-weight: 200;
 }
 
-img {
-    width: 80%;
+.backgroundMusic {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    position: fixed;
+    z-index: 4;
+    margin: 1rem;
+    bottom: 0%;
+    left: 0%;
 }
 
-footer {
-    margin-top: 5%;
-    color: #EEEEEE;
-    text-align: center;
-    font-family: 'Indie Flower', cursive;
+.audio-control {
+    fill: #4ECCA3;
+    width: 4rem;
+}
+
+.audio-control svg path {
+    pointer-events: none;
+}
+
+.audio-button {
+    border: none;
+    background-color: #2e323800;
+}
+
+.background {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 3;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    visibility: hidden;
+    opacity: 0;
+    transition: 300ms ease;
+    backdrop-filter: blur(25px) saturate(50%);
+    -webkit-backdrop-filter: blur(23px) saturate(112%);
+    background-color: #22222b1a;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+}
+
+.background.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.winner-modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0 4rem 2.5rem 4rem;
+    border-radius: 20px;
+    width: 500px;
+    height: 450px;
+    background-color: #37393b;
+}
+
+.winner {
+    font-size: 10rem;
+    height: fit-content;
+    font-family: 'Lobster';
+    text-shadow: 10px 10px #232931;
+}
+
+.wins {
+    font-size: 3rem;
+    font-family: 'Lobster';
+    text-shadow: 5px 5px #232931;
+}
+
+.retry {
+    padding: 1rem 2rem;
+    background-color: #4ECCA3;
+    box-shadow: 10px 10px #232931;
+    border: none;
+    cursor: pointer;
+}
+
+#retry-icon {
+    width: 3rem;
 }
