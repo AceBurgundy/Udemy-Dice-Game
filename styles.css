@@ -353,13 +353,84 @@ p {
 
 @media screen and (min-width: 884px) and (max-width: 1024px) and (min-height: 930px) {
     .audio-control {
-        width: 3rem;
+        width: 7rem;
     }
     p {
         font-size: 2.5rem;
     }
     .title {
-        font-size: 7rem;
+        font-size: 11rem;
+    }
+    .playerOne,
+    .playerTwo {
+        display: none;
+    }
+    .game-container {
+        grid-template-columns: 0 100% 0;
+    }
+    .race-track {
+        width: 100%;
+    }
+    .car-track-left,
+    .car-track-right {
+        width: 7rem;
+    }
+    .car {
+        height: 15rem;
+    }
+    .car::before,
+    .car::after {
+        left: 10px;
+        width: 10px;
+        height: 5px;
+    }
+    .car::before {
+        bottom: 2px;
+        box-shadow: 80px 0 #fc3c25;
+    }
+    .car::after {
+        top: 2px;
+        box-shadow: 80px 0 #ffffff;
+    }
+    .game-container {
+        grid-template-columns: 0 100% 0;
+    }
+    .backgroundMusic {
+        margin-bottom: 0%;
+        margin-left: 0.5rem;
+    }
+    .playerOne,
+    .playerTwo {
+        display: none;
+    }
+    .winner-modal {
+        width: 100vw;
+        height: 100vh;
+        gap: 1rem;
+        justify-content: center;
+    }
+    .winner {
+        font-size: 6rem;
+    }
+    .window-dividers::before,
+    .window-dividers::after {
+        display: none;
+    }
+    .mobile-score-one,
+    .mobile-score-two {
+        font-size: 2rem;
+    }
+    .winner {
+        font-size: 17rem;
+    }
+    .wins {
+        font-size: 8rem;
+    }
+    .retry {
+        margin-top: 2rem;
+    }
+    #retry-icon {
+        width: 8rem;
     }
 }
 
@@ -399,7 +470,7 @@ p {
     }
 }
 
-@media screen and (max-width: 500px) and (min-height: 601px) {
+@media screen and (max-width: 500px) and (min-height: 500px) {
     .audio-control {
         width: 2.5rem;
     }
@@ -509,30 +580,3 @@ p {
         box-shadow: -19px -28px #33383f;
     }
 }
-
-
-/* .window-dividers::before {
-    content: "";
-    position: absolute;
-    bottom: -35px;
-    left: 1px;
-    width: 2px;
-    height: 20px;
-    background-color: #33383f;
-    transform-origin: right;
-    transform: rotate(6deg);
-    box-shadow: 40.5px -56px #33383f;
-}
-
-.window-dividers::after {
-    content: "";
-    position: absolute;
-    bottom: -35px;
-    right: 2px;
-    width: 2px;
-    height: 20px;
-    background-color: #33383f;
-    transform-origin: right;
-    transform: rotate(-6deg);
-    box-shadow: -40.5px -56px #33383f;
-} */
