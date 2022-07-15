@@ -7,6 +7,7 @@
     display: flex;
     justify-content: center;
     bottom: 2%;
+    z-index: 3;
     border-radius: 10px;
     box-shadow: 5px 5px rgba(0, 0, 0, 0.25);
     transition: 500ms ease-in-out;
@@ -69,7 +70,8 @@
     border-radius: 5px;
     background-color: #33383f;
     top: 50%;
-    transform: translateY(-50%);
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 
