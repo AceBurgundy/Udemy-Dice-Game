@@ -26,17 +26,21 @@ body {
     position: absolute;
     z-index: 2;
     bottom: 0%;
+    opacity: 1;
     transition: 1000ms ease-out;
 }
 
 .menu-container.active {
     bottom: 100%;
+    opacity: 0;
+    visibility: hidden;
 }
 
 .title {
     font-size: 20rem;
     font-family: 'Lobster';
     color: #4ECCA3;
+    text-align: center;
     text-shadow: 15px 0 #232931;
 }
 
@@ -121,7 +125,6 @@ body {
     justify-content: space-evenly;
     position: relative;
     align-items: flex-end;
-    gap: 4rem;
     background-color: #393E46;
 }
 
@@ -160,7 +163,7 @@ img.active {
 }
 
 .race-line {
-    width: 180vh;
+    width: 200vh;
     height: 4px;
     transform: rotate(90deg);
     position: absolute;
@@ -184,21 +187,52 @@ img.active {
 
 .race-track-left,
 .race-track-right {
-    width: 4rem;
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    z-index: 5;
     display: flex;
+    justify-content: center;
+}
+
+.race-track-left {
+    left: 0%;
+    top: 0%;
+}
+
+.race-track-right {
+    right: 0%;
+    top: 0%;
+}
+
+.car-track-left,
+.car-track-right {
+    width: 4rem;
     overflow: visible;
     position: relative;
     height: 90%;
+    pointer-events: none;
+}
+
+.mobile-score-one,
+.mobile-score-two {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 7;
+    color: white;
 }
 
 .goal {
     position: absolute;
     z-index: 1;
     height: 4rem;
-    width: 90%;
-    top: 1%;
+    width: 100%;
+    top: 0%;
     background: linear-gradient(90deg, #232931, #232931 50%, transparent 1%, transparent 1%);
     background-size: 50px;
+    background-color: #393E46;
 }
 
 .goal.active {
@@ -226,14 +260,14 @@ p {
     justify-content: space-evenly;
     position: fixed;
     z-index: 4;
-    margin: 1rem;
+    margin-left: 0.5rem;
     bottom: 0%;
     left: 0%;
 }
 
 .audio-control {
     fill: #4ECCA3;
-    width: 4rem;
+    width: 3.5rem;
 }
 
 .audio-control svg path {
@@ -307,3 +341,198 @@ p {
 #retry-icon {
     width: 3rem;
 }
+
+@media screen and (min-width: 1024px) and (max-width: 1200px) {
+    .title {
+        font-size: 10rem;
+    }
+    .audio-control {
+        width: 2rem;
+    }
+}
+
+@media screen and (min-width: 884px) and (max-width: 1024px) and (min-height: 930px) {
+    .audio-control {
+        width: 3rem;
+    }
+    p {
+        font-size: 2.5rem;
+    }
+    .title {
+        font-size: 7rem;
+    }
+}
+
+@media screen and (min-width: 501px) and (max-width: 883px) and (max-height: 930px) {
+    .audio-control {
+        width: 2.5rem;
+    }
+    .title {
+        font-size: 3rem;
+    }
+    .playerOne,
+    .playerTwo {
+        display: none;
+    }
+    .game-container {
+        grid-template-columns: 0 100% 0;
+    }
+    .race-track {
+        width: 100%;
+    }
+    #play-button {
+        width: 2rem;
+    }
+    .start-button {
+        padding: 2rem 3rem 2rem 3rem;
+    }
+    #retry-icon {
+        width: 1rem;
+    }
+    .winner-modal {
+        width: 100vw;
+        height: 100vh;
+        justify-content: center;
+    }
+    .winner {
+        font-size: 10rem;
+    }
+}
+
+@media screen and (max-width: 500px) and (min-height: 601px) {
+    .audio-control {
+        width: 2.5rem;
+    }
+    .title {
+        font-size: 4rem;
+    }
+    #play-button {
+        width: 2rem;
+    }
+    .game-container {
+        grid-template-columns: 0 100% 0;
+    }
+    .start-button {
+        padding: 2rem 3rem 2rem 3rem;
+    }
+    .race-track {
+        width: 100%;
+    }
+    .playerOne,
+    .playerTwo {
+        display: none;
+    }
+    .winner-modal {
+        width: 100vw;
+        height: 100vh;
+        gap: 1rem;
+        justify-content: center;
+    }
+    .winner {
+        font-size: 6rem;
+    }
+}
+
+@media screen and (max-width: 500px) and (max-height: 500px) {
+    .audio-control {
+        width: 2.5rem;
+    }
+    .title {
+        font-size: 4rem;
+    }
+    #play-button {
+        width: 2rem;
+    }
+    .start-button {
+        padding: 2rem 3rem 2rem 3rem;
+    }
+    .playerOne,
+    .playerTwo {
+        display: none;
+    }
+    .car-track-left,
+    .car-track-right {
+        width: 2rem;
+    }
+    .car {
+        height: 4rem;
+    }
+    .car::before,
+    .car::after {
+        left: 4.5px;
+        width: 3px;
+        height: 1px;
+    }
+    .car::before {
+        bottom: 2px;
+        box-shadow: 20px 0 #fc3c25;
+    }
+    .car::after {
+        top: 2px;
+        box-shadow: 20px 0 #ffffff;
+    }
+    .game-container {
+        grid-template-columns: 0 100% 0;
+    }
+    .backgroundMusic {
+        margin-bottom: 0%;
+        margin-left: 0.5rem;
+    }
+    .audio-control {
+        width: 2rem;
+    }
+    .playerOne,
+    .playerTwo {
+        display: none;
+    }
+    .winner-modal {
+        width: 100vw;
+        height: 100vh;
+        gap: 1rem;
+        justify-content: center;
+    }
+    .winner {
+        font-size: 6rem;
+    }
+    .window-dividers::before {
+        left: 2px;
+        width: 1px;
+        height: 10px;
+        bottom: -17px;
+        box-shadow: 19px -28px #33383f;
+    }
+    .window-dividers::after {
+        right: 1px;
+        width: 1px;
+        height: 10px;
+        bottom: -17px;
+        box-shadow: -19px -28px #33383f;
+    }
+}
+
+
+/* .window-dividers::before {
+    content: "";
+    position: absolute;
+    bottom: -35px;
+    left: 1px;
+    width: 2px;
+    height: 20px;
+    background-color: #33383f;
+    transform-origin: right;
+    transform: rotate(6deg);
+    box-shadow: 40.5px -56px #33383f;
+}
+
+.window-dividers::after {
+    content: "";
+    position: absolute;
+    bottom: -35px;
+    right: 2px;
+    width: 2px;
+    height: 20px;
+    background-color: #33383f;
+    transform-origin: right;
+    transform: rotate(-6deg);
+    box-shadow: -40.5px -56px #33383f;
+} */
