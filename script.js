@@ -60,15 +60,16 @@ document.addEventListener("keypress", (event) => {
 
 // when the play button is clicked
 ignition = new Audio("soundfx/ignition.wav")
+backgroundMusic = new Audio("soundfx/background.mp3")
 
 document.querySelector(".start-button").addEventListener("click", () => {
     ignition.play()
     document.querySelector(".goal").classList.toggle("active")
     document.querySelector(".menu-container").classList.toggle("active")
     document.querySelector(".race-line").classList.toggle("active")
+    backgroundMusic.play()
 })
 
-backgroundMusic = new Audio("soundfx/background.mp3")
 let volumeSetters = document.querySelectorAll(".audio-control")
 
 volumeSetters.forEach((set) => {
