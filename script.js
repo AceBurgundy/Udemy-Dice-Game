@@ -3,11 +3,33 @@ let players = document.querySelectorAll(".action")
 let background = document.querySelector(".background");
 let winner = document.querySelector(".winner")
 let retry = document.querySelector(".retry")
-let goalPosition = ((parseInt(window.getComputedStyle(goal).getPropertyValue('bottom'), 10)) - 128);
+let raceTrack = document.querySelector(".race-track-left")
+
+// let goalPosition = ((parseInt(window.getComputedStyle(goal).getPropertyValue('bottom'), 10) - goal.offsetHeight));
 
 // rolls dice
 function rollDice() {
     return Math.floor(Math.random() * 6) + 1;
+}
+
+function diceMultiplier(diceResult) {
+    value = ""
+
+    if (diceResult === 1) {
+        value = 40 * diceResult
+    } else if (diceResult === 2) {
+        value = 35 * diceResult
+    } else if (diceResult === 3) {
+        value = 30 * diceResult
+    } else if (diceResult === 4) {
+        value = 25 * diceResult
+    } else if (diceResult === 5) {
+        value = 20 * diceResult
+    } else if (diceResult === 6) {
+        value = 15 * diceResult
+    }
+
+    return value
 }
 
 let newScore = "";
@@ -16,16 +38,16 @@ let newScore = "";
 function runGame(number, boost) {
     let car = document.getElementById(`car-${number}`)
     let image = document.querySelector(`.img-${number}`)
-    let carBottom = parseInt(window.getComputedStyle(car).getPropertyValue('bottom'), { boost })
+    let carBottom = parseInt(window.getComputedStyle(car).getPropertyValue('bottom'))
     let score = document.getElementById(`player-${number}-score`)
 
-    if (carBottom > goalPosition) {
+    if (carBottom > (screen.height)) {
         background.classList.toggle("active")
         number === 'one' ? winner.textContent = "player1" : winner.textContent = "player2"
     } else {
         dice = rollDice()
 
-        let newCarDistance = carBottom + (dice * 10);
+        let newCarDistance = carBottom + diceMultiplier(dice);
         image.src = "images\\" + dice + ".png"
         image.classList.add("active")
 
