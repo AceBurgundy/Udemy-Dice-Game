@@ -311,29 +311,29 @@ p {
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 0 4rem 2.5rem 4rem;
-    border-radius: 20px;
+    border-radius: 30px;
     width: 500px;
     height: 450px;
     background-color: #37393b;
+    box-shadow: 20px 20px #232931;
 }
 
 .winner {
     font-size: 10rem;
     height: fit-content;
-    font-family: 'Lobster';
     text-shadow: 10px 10px #232931;
 }
 
 .wins {
     font-size: 3rem;
-    font-family: 'Lobster';
     text-shadow: 5px 5px #232931;
 }
 
 .retry {
+    margin-top: 2rem;
     padding: 1rem 2rem;
     background-color: #4ECCA3;
-    box-shadow: 10px 10px #232931;
+    box-shadow: 15px 15px #232931;
     border: none;
     cursor: pointer;
 }
@@ -351,156 +351,34 @@ p {
     }
 }
 
-@media screen and (min-width: 884px) and (max-width: 1024px) and (min-height: 930px) {
-    .audio-control {
-        width: 7rem;
-    }
-    p {
-        font-size: 2.5rem;
-    }
+@media screen and (min-width: 501px) and (max-width: 1023px) {
     .title {
-        font-size: 11rem;
+        font-size: 10rem;
     }
-    .playerOne,
-    .playerTwo {
-        display: none;
+    .audio-control {
+        width: 5rem;
     }
     .game-container {
         grid-template-columns: 0 100% 0;
     }
-    .race-track {
-        width: 100%;
+    .playerOne,
+    .playerTwo {
+        display: none;
     }
     .car-track-left,
     .car-track-right {
-        width: 7rem;
+        width: 5rem;
     }
     .car {
-        height: 15rem;
-    }
-    .car::before,
-    .car::after {
-        left: 10px;
-        width: 10px;
-        height: 5px;
-    }
-    .car::before {
-        bottom: 2px;
-        box-shadow: 80px 0 #fc3c25;
-    }
-    .car::after {
-        top: 2px;
-        box-shadow: 80px 0 #ffffff;
-    }
-    .game-container {
-        grid-template-columns: 0 100% 0;
-    }
-    .backgroundMusic {
-        margin-bottom: 0%;
-        margin-left: 0.5rem;
-    }
-    .playerOne,
-    .playerTwo {
-        display: none;
-    }
-    .winner-modal {
-        width: 100vw;
-        height: 100vh;
-        gap: 1rem;
-        justify-content: center;
-    }
-    .winner {
-        font-size: 6rem;
-    }
-    .window-dividers::before,
-    .window-dividers::after {
-        display: none;
+        height: 10rem;
+        transition: 200ms;
     }
     .mobile-score-one,
     .mobile-score-two {
         font-size: 2rem;
     }
-    .winner {
-        font-size: 17rem;
-    }
-    .wins {
-        font-size: 8rem;
-    }
-    .retry {
-        margin-top: 2rem;
-    }
-    #retry-icon {
-        width: 8rem;
-    }
-}
-
-@media screen and (min-width: 501px) and (max-width: 883px) and (max-height: 930px) {
-    .audio-control {
-        width: 2.5rem;
-    }
-    .title {
-        font-size: 3rem;
-    }
-    .playerOne,
-    .playerTwo {
-        display: none;
-    }
-    .game-container {
-        grid-template-columns: 0 100% 0;
-    }
-    .race-track {
-        width: 100%;
-    }
-    #play-button {
-        width: 2rem;
-    }
-    .start-button {
-        padding: 2rem 3rem 2rem 3rem;
-    }
-    #retry-icon {
-        width: 1rem;
-    }
-    .winner-modal {
-        width: 100vw;
-        height: 100vh;
-        justify-content: center;
-    }
-    .winner {
-        font-size: 10rem;
-    }
-}
-
-@media screen and (max-width: 500px) and (min-height: 500px) {
-    .audio-control {
-        width: 2.5rem;
-    }
-    .title {
-        font-size: 4rem;
-    }
-    #play-button {
-        width: 2rem;
-    }
-    .game-container {
-        grid-template-columns: 0 100% 0;
-    }
-    .start-button {
-        padding: 2rem 3rem 2rem 3rem;
-    }
-    .race-track {
-        width: 100%;
-    }
-    .playerOne,
-    .playerTwo {
-        display: none;
-    }
-    .winner-modal {
-        width: 100vw;
-        height: 100vh;
-        gap: 1rem;
-        justify-content: center;
-    }
-    .winner {
-        font-size: 6rem;
+    .goal {
+        height: 7rem;
     }
 }
 
@@ -563,7 +441,7 @@ p {
         justify-content: center;
     }
     .winner {
-        font-size: 6rem;
+        font-size: 5rem;
     }
     .window-dividers::before {
         left: 2px;
@@ -578,5 +456,8 @@ p {
         height: 10px;
         bottom: -17px;
         box-shadow: -19px -28px #33383f;
+    }
+    .goal {
+        height: 2rem
     }
 }
