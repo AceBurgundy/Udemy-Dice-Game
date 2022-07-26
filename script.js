@@ -35,7 +35,7 @@ function diceMultiplier(diceResult) {
 let newScore = "";
 
 // game function
-function runGame(number, boost) {
+function runGame(number) {
     let car = document.getElementById(`car-${number}`)
     let image = document.querySelector(`.img-${number}`)
     let carBottom = parseInt(window.getComputedStyle(car).getPropertyValue('bottom'))
@@ -74,9 +74,9 @@ retry.addEventListener("click", () => {
 players.forEach((player) => {
     player.addEventListener("click", (event) => {
         if (event.target.classList.contains("player1")) {
-            screen.width < 1200 ? runGame('one', 5) : runGame('one', 10)
+            screen.width < 1200 ? runGame('one') : runGame('one')
         } else {
-            screen.width < 1200 ? runGame('two', 5) : runGame('two', 10)
+            screen.width < 1200 ? runGame('two') : runGame('two')
         }
     })
 })
@@ -85,16 +85,16 @@ players.forEach((player) => {
 // runs game on click
 players.forEach((player) => {
     player.addEventListener("click", (event) => {
-        event.target.classList.contains("player1") ? runGame('one', 10) : runGame('two', 10)
+        event.target.classList.contains("player1") ? runGame('one') : runGame('two')
     })
 })
 
 // Runs game on keypress
 document.addEventListener("keypress", (event) => {
     if ((event.key) === "z") {
-        runGame('one', 10)
+        runGame('one')
     } else if ((event.key) === ".") {
-        runGame('two', 10)
+        runGame('two')
     }
 })
 
@@ -139,10 +139,10 @@ if (screen.width < 884) {
     raceTrackHalfSide.forEach((track) => {
         track.addEventListener("click", (event) => {
             if (event.target.classList.contains("player1")) {
-                newScore = runGame('one', 5)
+                newScore = runGame('one')
                 document.querySelector(".mobile-score-one").innerHTML = newScore
             } else if (event.target.classList.contains("player2")) {
-                newScore = runGame('two', 5)
+                newScore = runGame('two')
                 document.querySelector(".mobile-score-two").innerHTML = newScore
             }
         })
